@@ -1,0 +1,9 @@
+Proposed Solution:
+
+The subnet's objective is as follows: given specific data pertaining to the current state of the subnet (such as validator node UID and current step), the aim is to discover a positive integer. This integer, when hashed with the subnet data, generates a string beginning with a predetermined number of zeros. This zero count is determined by a difficulty value predefined in the code.
+
+The validator node furnishes the essential information required to complete this task to the miner nodes, encapsulated within a synapse object, alongside a timeout value expressed in seconds.
+
+Each miner node initiates a search for a number meeting the aforementioned condition. This search must conclude within a timeframe equivalent to the specified timeout value. Upon discovering a suitable number, the miner node records both the number itself and the duration taken to find it within the synapse object.
+
+In the event a miner fails to locate a suitable number within the allocated time, they receive zero points. Conversely, if a miner succeeds in finding a number within N seconds, they are rewarded a score equal to 1/N.
